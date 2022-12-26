@@ -50,12 +50,16 @@ const App = () => {
         <Button handleClick={handleNeutral} text='neutral' />
         <Button handleClick={handleBad} text='bad' />
         <Header name='statistics' />
-        <Statistics name='good' value={clicks.good} />
-        <Statistics name='neutral' value={clicks.neutral} />
-        <Statistics name='bad' value={clicks.bad} />
-        <Statistics name='all' value={clicks.good + clicks.neutral + clicks.bad} />
-        <Statistics name='average' value={(clicks.good + clicks.neutral + clicks.bad) / 3} />
-        <Statistics name='positive ' value={clicks.good * (100 / (clicks.good + clicks.neutral + clicks.bad))} />
+        <table>
+          <tbody>
+        <tr><td><Statistics name='good' value={clicks.good} /></td></tr>
+        <tr><td><Statistics name='neutral' value={clicks.neutral} /></td></tr>
+        <tr><td><Statistics name='bad' value={clicks.bad} /></td></tr>
+        <tr><td><Statistics name='all' value={clicks.good + clicks.neutral + clicks.bad} /></td></tr>
+        <tr><td><Statistics name='average' value={(clicks.good + clicks.neutral + clicks.bad) / 3} /></td></tr>
+        <tr><td><Statistics name='positive ' value={clicks.good * (100 / (clicks.good + clicks.neutral + clicks.bad))} /></td></tr>
+        </tbody>
+        </table>
       </div>
     )
   }
