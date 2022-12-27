@@ -22,8 +22,10 @@ const App = () => {
   const handleQuote = () => {
     const randomizer = Math.floor(Math.random() * (6 - 0 + 1) + 0)
     setSelected(randomizer)
-    console.log(selected)
+    console.log(randomizer)
   }
+
+  
 
   return (
     <div>
