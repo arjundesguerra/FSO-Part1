@@ -24,6 +24,7 @@ const App = () => {
     const randomizer = Math.floor(Math.random() * (6 - 0 + 1) + 0)
     setSelected(randomizer)
     console.log(selected)
+    Most()
   }
 
   const handleVote = () => {
@@ -31,16 +32,36 @@ const App = () => {
     copy[selected] += 1
     setVoteArray(copy)
     console.log(copy)
+    Most()
   }
 
+  const Most = () => {
+    let most = 0;
+    let index = 0;
+    for(let i = 0; i < voteArray.length; i++) {
+      if(most < voteArray[i]) {
+        most = voteArray[i]
+        index = i
+      }
+    }
+    return (
+      <>
+        {anecdotes[index]}
+        <br />has {most} votes
+      </>
+    )
+  }
 
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       {anecdotes[selected]}
       <br/>has {voteArray[selected]} votes
       <br /><Button handleClick={handleQuote} text='next anecdote' />
       <br /><Button handleClick={handleVote} text='vote' />
+      <h1>Anecdote with the most votes</h1>
+      {Most()}
     </div>
   )
 }
